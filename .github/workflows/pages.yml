@@ -1,0 +1,52 @@
+name: Pages 체험판
+
+# 서버 없이 동작하는 브라우저 체험판(학습 앱 + 관리자 화면)을 GitHub Pages에 배포한다.
+#   https://<owner>.github.io/<repo>/
+# 데이터는 각 기기의 브라우저에만 저장된다. 정식 서버판 배포는 docs/DEPLOY.md 참고.
+on:
+  push:
+    branches: [main, "claude/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - name: 체험판 빌드
+        env:
+          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
+          NEXT_PUBLIC_APK_URL: https://github.com/${{ github.repository }}/releases/download/android-latest/hangulmanse.apk
+        run: npm run build:demo
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    # main 브랜치만 실제로 배포한다(다른 브랜치는 빌드 검증만)
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/configure-pages@v5
+      - id: deployment
+        uses: actions/deploy-pages@v4

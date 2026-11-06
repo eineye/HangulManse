@@ -1,5 +1,6 @@
 "use client";
 
+import { learnHref } from "@/lib/routes";
 import Link from "next/link";
 import { useState } from "react";
 import LangToggle from "./LangToggle";
@@ -82,7 +83,7 @@ export default function CoursesView({ user, courses, progress, stats }: { user: 
                         {u.situations.map((s) => {
                           const sp = progress.situations[s.id];
                           return (
-                            <Link key={s.id} href={`/learn/${u.id}/${s.id}`} className="flex items-center gap-3 rounded-xl bg-white p-3 ring-1 ring-black/5 transition hover:ring-forest-600">
+                            <Link key={s.id} href={learnHref(u.id, s.id)} className="flex items-center gap-3 rounded-xl bg-white p-3 ring-1 ring-black/5 transition hover:ring-forest-600">
                               <span className="text-2xl">{s.image}</span>
                               <div className="min-w-0 flex-1">
                                 <div className="truncate font-semibold">{pick(s.title_ko, s.title_en)}</div>

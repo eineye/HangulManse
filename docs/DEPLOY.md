@@ -1,5 +1,7 @@
 # 배포 가이드 — 웹(관리자 포함) + Android APK
 
+> 서버 없이 시험만 하려면 [`docs/TRIAL.md`](TRIAL.md)(GitHub Pages 체험판 + 시험용 APK)를 먼저 보세요.
+
 한글만세는 **웹 서버 하나**에 사용자 앱과 관리자 페이지가 함께 들어 있습니다.
 Android 앱(APK)은 이 웹사이트를 Chrome으로 전체 화면 실행하는 **TWA(Trusted Web Activity)** 방식이라,
 웹을 먼저 배포하고 그 주소로 APK를 만듭니다.

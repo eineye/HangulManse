@@ -2,13 +2,14 @@
 
 import { useEffect } from "react";
 import { useLang } from "@/lib/i18n";
+import { BASE_PATH } from "@/lib/routes";
 
 /** 저장된 UI 언어 복원 + (프로덕션) 서비스워커 등록 */
 export default function ClientInit() {
   useEffect(() => {
     useLang.persist.rehydrate();
     if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/sw.js").catch(() => {});
+      navigator.serviceWorker.register(`${BASE_PATH}/sw.js`, { scope: `${BASE_PATH}/` }).catch(() => {});
     }
   }, []);
   useEffect(() => {

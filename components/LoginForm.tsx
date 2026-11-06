@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import LangToggle from "./LangToggle";
 import { useT } from "@/lib/i18n";
 import { NATIVE_LANGUAGES } from "@/lib/languages";
+import { IS_DEMO } from "@/lib/routes";
 
 export default function LoginForm({ next, initialError }: { next: string | null; initialError?: string | null }) {
   const router = useRouter();
@@ -14,6 +15,13 @@ export default function LoginForm({ next, initialError }: { next: string | null;
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(initialError ?? null);
   const [form, setForm] = useState({ email: "", password: "", name: "", nationality: "", native_language: "vi", institution: "" });
+  // 체험판: Android 브라우저에서만 APK 내려받기 안내 (설치된 앱 안에서는 숨김)
+  const [apkUrl, setApkUrl] = useState<string | null>(null);
+  useEffect(() => {
+    const url = process.env.NEXT_PUBLIC_APK_URL;
+    const inApp = window.matchMedia("(display-mode: standalone)").matches || document.referrer.startsWith("android-app://");
+    if (IS_DEMO && url && /Android/i.test(navigator.userAgent) && !inApp) setApkUrl(url);
+  }, []);
   const upd = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => setForm({ ...form, [k]: e.target.value });
 
   async function submit(e: React.FormEvent) {
@@ -39,7 +47,8 @@ export default function LoginForm({ next, initialError }: { next: string | null;
           <LangToggle dark />
         </div>
 
-        <form onSubmit={submit} method="post" action="/api/auth/login" className="card space-y-4 p-6">
+        {/* 서버판: 자바스크립트 로드 전에 제출돼도 안전하게 POST. 체험판: 서버가 없으므로 action 없음 */}
+        <form onSubmit={submit} method="post" action={IS_DEMO ? undefined : "/api/auth/login"} className="card space-y-4 p-6">
           <div className="grid grid-cols-2 rounded-xl bg-forest-50 p-1 text-sm font-bold">
             {(["login", "signup"] as const).map((m) => (
               <button type="button" key={m} onClick={() => { setMode(m); setError(null); }} className={`rounded-lg py-2 ${mode === m ? "bg-white text-forest-900 shadow-sm" : "text-forest-700"}`}>
@@ -87,6 +96,14 @@ export default function LoginForm({ next, initialError }: { next: string | null;
           {error && <p className="rounded-lg bg-danger/10 px-3 py-2 text-sm text-danger" role="alert">{error}</p>}
           <button className="btn-primary w-full py-3 text-base" disabled={busy}>{busy ? "…" : mode === "login" ? L("로그인", "Log in") : L("가입하고 시작하기", "Sign up & start")}</button>
 
+          {IS_DEMO && (
+            <div className="rounded-xl bg-accent/15 px-3 py-2 text-xs text-forest-950">
+              🧪 <b>{L("체험판", "Trial version")}</b> · {L("서버 없이 동작하며, 모든 데이터는 이 기기의 브라우저에만 저장돼요.", "Runs without a server; all data stays in this device's browser.")}
+              {apkUrl && (
+                <a href={apkUrl} className="mt-1.5 block font-bold text-forest-800 underline">🤖 {L("Android 앱(APK) 내려받기", "Download the Android app (APK)")}</a>
+              )}
+            </div>
+          )}
           {mode === "login" && (
             <div className="rounded-xl bg-paper px-3 py-2 text-xs text-forest-800">
               <b>{L("체험 계정", "Demo accounts")}</b>

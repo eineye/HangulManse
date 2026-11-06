@@ -10,3 +10,6 @@
 - 유닛·상황 ID는 학습 화면 URL(`/learn/:unitId/:situationId`)에 쓰이므로 전체 코스에서 유일해야 합니다.
 - 학습자가 이미 있는 상황·문장의 ID를 바꾸면 기존 진도 기록과 연결이 끊깁니다.
 - 타입 정의: `lib/types.ts`
+
+브라우저 체험판(GitHub Pages·APK)은 빌드할 때 이 폴더의 파일을 `lib/demo/default-content.json`으로 묶어
+기본 콘텐츠로 씁니다(`npm run build:demo`가 자동으로 다시 만듭니다). 체험판에서 관리자가 고친 내용은 그 브라우저에만 저장됩니다.

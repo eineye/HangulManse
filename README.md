@@ -4,6 +4,10 @@
 **사용자 학습 앱**과 이를 운영하는 **관리자 웹페이지**가 하나의 Next.js 앱으로 구성되어 있습니다.
 설계 문서: [`docs/PROGRAM_DESIGN.md`](docs/PROGRAM_DESIGN.md)
 
+**🧪 바로 테스트하기 (서버 없는 체험판):** https://eineye.github.io/HangulManse/ — PC·휴대폰 웹에서 학습 앱과 관리자 화면(`/admin`)을 시험할 수 있습니다.
+Android 앱: https://github.com/eineye/HangulManse/releases/download/android-latest/hangulmanse.apk
+데이터는 각 기기 브라우저에만 저장되는 시험판입니다(관리자 `admin@hangulmanse.kr` / `admin1234!`). 자세한 내용과 제한 사항: [`docs/TRIAL.md`](docs/TRIAL.md)
+
 ## 실행
 
 Node.js 20 이상이 필요합니다.
@@ -51,6 +55,8 @@ npm start
 HTTPS가 아닌 환경에서 `npm start`로 테스트할 때는 `INSECURE_COOKIES=1`을 지정해야 로그인 쿠키가 저장됩니다.
 
 ## 배포 · 스마트폰 앱(APK)
+
+> 서버 없이 시험만 할 때는 위의 체험판을 쓰세요([`docs/TRIAL.md`](docs/TRIAL.md)). 아래는 정식 서버 배포입니다.
 
 웹 서버 하나에 사용자 앱과 관리자 페이지(`/admin`)가 함께 배포됩니다. Android 앱은 배포된 웹을 Chrome으로
 전체 화면 실행하는 TWA 방식이며, GitHub Actions(**Android APK** 워크플로)에서 APK를 만듭니다.
@@ -100,7 +106,9 @@ lib/
   auth.ts         서명 쿠키 세션, 권한 확인
   scoring.ts      발음 근사 채점 + 규칙 기반 피드백
   speech.ts       브라우저 TTS/STT
+  demo/           브라우저 체험판: localStorage 저장소, API 대체 처리(backend.ts), fetch 가로채기
 content/          학습 콘텐츠 (코스별 JSON)
+app/**/*.demo.tsx 체험판 전용 페이지 (`npm run build:demo`에서만 사용)
 ```
 
 ## 프로토타입의 한계

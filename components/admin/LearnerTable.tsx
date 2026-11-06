@@ -1,8 +1,9 @@
 "use client";
 
+import { learnerHref } from "@/lib/routes";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import type { LearnerRow } from "@/lib/admin-data";
+import type { LearnerRow } from "@/lib/admin-calc";
 import { languageName } from "@/lib/languages";
 import { ScoreBadge, relTime } from "./ui";
 
@@ -84,7 +85,7 @@ export default function LearnerTable({ rows, courses }: { rows: LearnerRow[]; co
             {shown.map((r) => (
               <tr key={r.user.id} className="border-t border-black/5 hover:bg-forest-50/50">
                 <td className="px-4 py-2.5">
-                  <Link href={`/admin/learners/${r.user.id}`} className="font-semibold hover:underline">{r.user.name}</Link>
+                  <Link href={learnerHref(r.user.id)} className="font-semibold hover:underline">{r.user.name}</Link>
                   {r.user.sample && <span className="chip ml-1.5 bg-black/5 text-black/50">샘플</span>}
                   {!r.user.active && <span className="chip ml-1.5 bg-danger/10 text-danger">비활성</span>}
                   <div className="text-xs text-black/45">{r.user.email}</div>
