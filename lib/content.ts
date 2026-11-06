@@ -1,11 +1,11 @@
 import "server-only";
 import { promises as fs } from "node:fs";
 import path from "node:path";
+import { CONTENT_DIR } from "./paths";
 import type { Course, Situation, Unit } from "./types";
 
 // 콘텐츠는 content/*.json 에 코스 단위로 저장되고, 매 요청마다 다시 읽는다.
 // → 관리자 화면에서 저장하거나 파일을 직접 고치면 재빌드 없이 다음 요청부터 반영된다.
-const CONTENT_DIR = path.join(process.cwd(), "content");
 
 async function listCourseFiles(): Promise<string[]> {
   const entries = await fs.readdir(CONTENT_DIR);
@@ -13,7 +13,7 @@ async function listCourseFiles(): Promise<string[]> {
 }
 
 async function readCourseFile(file: string): Promise<Course> {
-  const raw = await fs.readFile(path.join(CONTENT_DIR, file), "utf8");
+  const raw = await fs.readFile(path.join(/*turbopackIgnore: true*/ CONTENT_DIR, file), "utf8");
   return JSON.parse(raw) as Course;
 }
 
@@ -144,7 +144,7 @@ export async function saveCourse(course: Course): Promise<string[]> {
   const errors = [...validateCourse(course), ...(await crossCourseConflicts(course))];
   if (errors.length) return errors;
   const file = (await fileForCourse(course.id)) ?? `${String(course.order ?? 9).padStart(2, "0")}-${course.id}.json`;
-  const target = path.join(CONTENT_DIR, file);
+  const target = path.join(/*turbopackIgnore: true*/ CONTENT_DIR, file);
   const tmp = `${target}.${process.pid}.tmp`;
   await fs.writeFile(tmp, JSON.stringify(course, null, 2) + "\n", "utf8");
   await fs.rename(tmp, target);
@@ -154,7 +154,7 @@ export async function saveCourse(course: Course): Promise<string[]> {
 export async function deleteCourse(courseId: string): Promise<boolean> {
   const file = await fileForCourse(courseId);
   if (!file) return false;
-  await fs.unlink(path.join(CONTENT_DIR, file));
+  await fs.unlink(path.join(/*turbopackIgnore: true*/ CONTENT_DIR, file));
   return true;
 }
 

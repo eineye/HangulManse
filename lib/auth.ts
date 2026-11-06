@@ -2,6 +2,7 @@ import "server-only";
 import { createHmac, randomBytes, timingSafeEqual } from "node:crypto";
 import { promises as fs } from "node:fs";
 import path from "node:path";
+import { DATA_DIR } from "./paths";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { findUserById, toPublicUser } from "./db";
@@ -15,7 +16,7 @@ let secretCache: Buffer | null = null;
 async function secret(): Promise<Buffer> {
   if (secretCache) return secretCache;
   if (process.env.AUTH_SECRET) return (secretCache = Buffer.from(process.env.AUTH_SECRET));
-  const file = path.join(process.cwd(), "data", ".secret");
+  const file = path.join(/*turbopackIgnore: true*/ DATA_DIR, ".secret");
   try {
     secretCache = Buffer.from(await fs.readFile(file, "utf8"), "base64");
   } catch {
