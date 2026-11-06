@@ -1,0 +1,231 @@
+{
+  "id": "basic",
+  "title_ko": "기초한글",
+  "title_en": "Basic Hangul",
+  "description_ko": "인사, 자기소개, 숫자처럼 매일 쓰는 가장 기본적인 한국어를 배워요.",
+  "description_en": "Learn the most basic everyday Korean: greetings, self-introduction and numbers.",
+  "icon": "가",
+  "order": 1,
+  "published": true,
+  "units": [
+    {
+      "id": "b1",
+      "title_ko": "인사하기",
+      "title_en": "Greetings",
+      "order": 1,
+      "level": "입문",
+      "situations": [
+        {
+          "id": "b1-s1",
+          "title_ko": "처음 만난 이웃에게 인사하기",
+          "title_en": "Greeting a new neighbor",
+          "description_ko": "새 아파트로 이사했어요. 엘리베이터에서 처음 만난 이웃에게 공손하게 인사해 봅시다.",
+          "description_en": "You just moved into a new apartment. Greet the neighbor you meet in the elevator politely.",
+          "goal_ko": "처음 만난 사람에게 존댓말로 인사하고 이름을 말할 수 있다.",
+          "goal_en": "Greet someone new in polite speech and say your name.",
+          "place_tag": "아파트",
+          "formality_tag": "존댓말",
+          "difficulty_tag": "초급",
+          "image": "🏢",
+          "roles": [
+            "새로 이사 온 주민",
+            "이웃 주민"
+          ],
+          "terms": [
+            {
+              "id": "t-annyeong",
+              "hangul": "안녕하세요",
+              "romanization": "annyeonghaseyo",
+              "gloss_en": "Hello",
+              "category": "인사"
+            },
+            {
+              "id": "t-cheoeum",
+              "hangul": "처음 뵙겠습니다",
+              "romanization": "cheoeum boepgetseumnida",
+              "gloss_en": "Nice to meet you (formal)",
+              "category": "인사"
+            },
+            {
+              "id": "t-jeoneun",
+              "hangul": "저는",
+              "romanization": "jeoneun",
+              "gloss_en": "I am (humble)",
+              "category": "자기소개"
+            },
+            {
+              "id": "t-ieyo",
+              "hangul": "이에요/예요",
+              "romanization": "ieyo/yeyo",
+              "gloss_en": "am / is (polite ending)",
+              "category": "문법"
+            }
+          ],
+          "sentences": [
+            {
+              "id": "b1-s1-1",
+              "text_ko": "안녕하세요. 처음 뵙겠습니다.",
+              "text_en": "Hello. Nice to meet you.",
+              "romanization": "annyeonghaseyo. cheoeum boepgetseumnida."
+            },
+            {
+              "id": "b1-s1-2",
+              "text_ko": "저는 마리아예요.",
+              "text_en": "I am Maria.",
+              "romanization": "jeoneun mariayeyo."
+            },
+            {
+              "id": "b1-s1-3",
+              "text_ko": "502호에 이사 왔어요.",
+              "text_en": "I moved into unit 502.",
+              "romanization": "obaegiho-e isa wasseoyo."
+            }
+          ]
+        },
+        {
+          "id": "b1-s2",
+          "title_ko": "헤어질 때 인사하기",
+          "title_en": "Saying goodbye",
+          "description_ko": "이웃과 이야기를 마치고 헤어질 때, 남는 사람과 떠나는 사람의 인사가 달라요.",
+          "description_en": "When parting, Korean uses different goodbyes for the person staying and the person leaving.",
+          "goal_ko": "상황에 맞게 '안녕히 가세요'와 '안녕히 계세요'를 구분해서 말할 수 있다.",
+          "goal_en": "Choose correctly between 'annyeonghi gaseyo' and 'annyeonghi gyeseyo'.",
+          "place_tag": "아파트",
+          "formality_tag": "존댓말",
+          "difficulty_tag": "초급",
+          "image": "👋",
+          "roles": [
+            "주민",
+            "이웃 주민"
+          ],
+          "terms": [
+            {
+              "id": "t-gaseyo",
+              "hangul": "안녕히 가세요",
+              "romanization": "annyeonghi gaseyo",
+              "gloss_en": "Goodbye (to someone leaving)",
+              "category": "인사"
+            },
+            {
+              "id": "t-gyeseyo",
+              "hangul": "안녕히 계세요",
+              "romanization": "annyeonghi gyeseyo",
+              "gloss_en": "Goodbye (to someone staying)",
+              "category": "인사"
+            },
+            {
+              "id": "t-tto",
+              "hangul": "또 만나요",
+              "romanization": "tto mannayo",
+              "gloss_en": "See you again",
+              "category": "인사"
+            },
+            {
+              "id": "t-gamsa",
+              "hangul": "감사합니다",
+              "romanization": "gamsahamnida",
+              "gloss_en": "Thank you",
+              "category": "인사"
+            }
+          ],
+          "sentences": [
+            {
+              "id": "b1-s2-1",
+              "text_ko": "만나서 반가웠어요.",
+              "text_en": "It was nice meeting you.",
+              "romanization": "mannaseo bangawosseoyo."
+            },
+            {
+              "id": "b1-s2-2",
+              "text_ko": "안녕히 계세요. 또 만나요.",
+              "text_en": "Goodbye (you stay). See you again.",
+              "romanization": "annyeonghi gyeseyo. tto mannayo."
+            },
+            {
+              "id": "b1-s2-3",
+              "text_ko": "감사합니다. 안녕히 가세요.",
+              "text_en": "Thank you. Goodbye (you go).",
+              "romanization": "gamsahamnida. annyeonghi gaseyo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2",
+      "title_ko": "숫자와 시간",
+      "title_en": "Numbers and time",
+      "order": 2,
+      "level": "입문",
+      "situations": [
+        {
+          "id": "b2-s1",
+          "title_ko": "전화번호 말하기",
+          "title_en": "Telling your phone number",
+          "description_ko": "주민센터 직원이 연락처를 물어봐요. 전화번호를 또박또박 말해 봅시다.",
+          "description_en": "A community center staff member asks for your contact. Say your phone number clearly.",
+          "goal_ko": "한자어 숫자(일, 이, 삼…)로 전화번호를 말할 수 있다.",
+          "goal_en": "Say a phone number with Sino-Korean numbers (il, i, sam…).",
+          "place_tag": "주민센터",
+          "formality_tag": "존댓말",
+          "difficulty_tag": "초급",
+          "image": "📞",
+          "roles": [
+            "민원인",
+            "주민센터 직원"
+          ],
+          "terms": [
+            {
+              "id": "t-gong",
+              "hangul": "공",
+              "romanization": "gong",
+              "gloss_en": "zero (in phone numbers)",
+              "category": "숫자"
+            },
+            {
+              "id": "t-il-i-sam",
+              "hangul": "일, 이, 삼",
+              "romanization": "il, i, sam",
+              "gloss_en": "one, two, three",
+              "category": "숫자"
+            },
+            {
+              "id": "t-jeonhwa",
+              "hangul": "전화번호",
+              "romanization": "jeonhwabeonho",
+              "gloss_en": "phone number",
+              "category": "생활"
+            },
+            {
+              "id": "t-dasi",
+              "hangul": "다시 한번",
+              "romanization": "dasi hanbeon",
+              "gloss_en": "once more",
+              "category": "생활"
+            }
+          ],
+          "sentences": [
+            {
+              "id": "b2-s1-1",
+              "text_ko": "제 전화번호는 공일공이에요.",
+              "text_en": "My phone number starts with 010.",
+              "romanization": "je jeonhwabeonhoneun gongilgong-ieyo."
+            },
+            {
+              "id": "b2-s1-2",
+              "text_ko": "천이백삼십사, 오천육백칠십팔이에요.",
+              "text_en": "It's 1234-5678.",
+              "romanization": "cheonibaeksamsipsa, ocheonyukbaekchilsippal-ieyo."
+            },
+            {
+              "id": "b2-s1-3",
+              "text_ko": "다시 한번 말씀해 주세요.",
+              "text_en": "Could you say that once more, please?",
+              "romanization": "dasi hanbeon malsseumhae juseyo."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "hangulmanse",
+  "version": "0.1.0",
+  "private": true,
+  "description": "한글만세 - 다문화 가정을 위한 AI 한국어 학습 서비스 (사용자 앱 + 관리자 웹)",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.6.0",
+    "next": "^16.4.5",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "server-only": "^0.0.1",
+    "zustand": "^5.0.16"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.4",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "postcss": "^8.5.32",
+    "tailwindcss": "^4.3.4",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+/* 설계 §3.1 디자인 토큰: 다크 그린 #0F2E24 계열 + 오프화이트 */
+@theme {
+  --color-forest-950: #0a2019;
+  --color-forest-900: #0f2e24;
+  --color-forest-800: #164234;
+  --color-forest-700: #1f5a46;
+  --color-forest-600: #2a7259;
+  --color-forest-500: #3a8d70;
+  --color-forest-100: #dcebe4;
+  --color-forest-50: #eef6f2;
+  --color-paper: #f7f4ec;
+  --color-paper-200: #ece6d6;
+  --color-ink: #1b1f1d;
+  --color-accent: #e8a33d;
+  --color-danger: #c8553d;
+  --font-sans: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+}
+
+html, body { background: var(--color-paper); color: var(--color-ink); }
+body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+
+@utility card { @apply rounded-2xl bg-white shadow-sm ring-1 ring-black/5; }
+@utility btn { @apply inline-flex items-center justify-center gap-1.5 rounded-xl px-3.5 py-2 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-50; }
+@utility btn-primary { @apply btn bg-forest-900 text-paper hover:bg-forest-800; }
+@utility btn-ghost { @apply btn bg-forest-50 text-forest-900 hover:bg-forest-100; }
+@utility btn-accent { @apply btn bg-accent text-forest-950 hover:brightness-95; }
+@utility btn-danger { @apply btn bg-danger/10 text-danger hover:bg-danger/20; }
+@utility input { @apply w-full rounded-xl border border-black/10 bg-white px-3 py-2 text-sm outline-none focus:border-forest-600 focus:ring-2 focus:ring-forest-600/20; }
+@utility label { @apply mb-1 block text-xs font-semibold text-forest-800; }
+@utility chip { @apply inline-flex items-center rounded-full bg-forest-50 px-2.5 py-0.5 text-xs font-medium text-forest-800; }
+@utility sub { @apply text-xs text-black/50; }

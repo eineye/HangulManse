@@ -1,0 +1,11 @@
+{
+  "name": "한글만세 HangulManse",
+  "short_name": "한글만세",
+  "description": "다문화 가정을 위한 AI 한국어 학습",
+  "start_url": "/courses",
+  "display": "standalone",
+  "background_color": "#f7f4ec",
+  "theme_color": "#0f2e24",
+  "lang": "ko",
+  "icons": [{ "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}
