@@ -1,5 +1,6 @@
 "use client";
 
+import { learnerHref } from "@/lib/routes";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -101,7 +102,7 @@ export default function UsersManager({ users, meId, focus }: { users: User[]; me
                   <td className="px-4 py-3">
                     <div className="font-semibold">{u.name} {isMe && <span className="chip ml-1">나</span>} {u.sample && <span className="chip ml-1 bg-black/5 text-black/50">샘플</span>}</div>
                     <div className="text-xs text-black/45">{u.email}</div>
-                    {u.role === "learner" && <Link href={`/admin/learners/${u.id}`} className="text-xs text-forest-700 underline">진도 보기</Link>}
+                    {u.role === "learner" && <Link href={learnerHref(u.id)} className="text-xs text-forest-700 underline">진도 보기</Link>}
                   </td>
                   <td className="px-3 py-3">
                     <select className="input w-auto py-1 text-xs" value={u.role} disabled={isMe || !!busy} onChange={(e) => call(`/api/admin/users/${u.id}`, "PATCH", { role: e.target.value }, "권한을 변경했습니다.")}>

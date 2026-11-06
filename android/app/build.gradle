@@ -10,7 +10,13 @@ def launchUrl = "https://${twaHost}${twaLaunchPath.startsWith('/') ? twaLaunchPa
 def appVersionCode = (project.findProperty('appVersionCode') ?: '1').toString().toInteger()
 def appVersionName = (project.findProperty('appVersionName') ?: '1.0.0').toString()
 
-// 릴리스 서명: 환경 변수(ANDROID_KEYSTORE_FILE 등)가 있으면 그 키로, 없으면 디버그 키로 서명한다.
+// 앱이 열어도 되는 주소 범위 (예: GitHub Pages 체험판은 /HangulManse)
+def twaPathPrefix = (project.findProperty('twaPathPrefix') ?: '/').toString()
+
+// 서명: 환경 변수(ANDROID_KEYSTORE_FILE 등)가 있으면 그 키로(정식 배포용),
+// 없으면 저장소에 포함된 공개 테스트 키(app/test-signing.jks)로 서명한다.
+// 테스트 키는 누구나 볼 수 있으므로 시험용으로만 쓴다 — 대신 빌드마다 서명이 같아서
+// 새 APK를 덮어 설치해도 앱 데이터(체험판 학습 기록)가 유지된다.
 // (워크플로에서 시크릿이 없으면 빈 문자열로 전달되므로 null뿐 아니라 빈 값도 걸러야 한다)
 def keystoreFile = System.getenv('ANDROID_KEYSTORE_FILE')?.trim()
 def hasReleaseKey = keystoreFile && file(keystoreFile).exists()
@@ -35,6 +41,7 @@ android {
         manifestPlaceholders = [
             hostName  : twaHost,
             launchUrl : launchUrl,
+            pathPrefix: twaPathPrefix,
         ]
     }
 
@@ -47,12 +54,18 @@ android {
                 keyPassword System.getenv('ANDROID_KEY_PASSWORD') ?: System.getenv('ANDROID_KEYSTORE_PASSWORD')
             }
         }
+        publicTest {
+            storeFile file('test-signing.jks')
+            storePassword 'hangulmanse-test'
+            keyAlias 'hangulmanse-test'
+            keyPassword 'hangulmanse-test'
+        }
     }
 
     buildTypes {
         release {
             minifyEnabled false
-            signingConfig hasReleaseKey ? signingConfigs.release : signingConfigs.debug
+            signingConfig hasReleaseKey ? signingConfigs.release : signingConfigs.publicTest
         }
     }
 

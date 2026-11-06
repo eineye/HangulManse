@@ -9,3 +9,6 @@ next-env.d.ts
 data/*.json
 data/.secret
 !data/.gitkeep
+
+# 브라우저 체험판 빌드 산출물
+out/

@@ -3,6 +3,7 @@ build/
 app/build/
 local.properties
 *.jks
+!app/test-signing.jks
 *.keystore
 .idea/
 *.iml

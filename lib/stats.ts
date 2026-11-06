@@ -1,6 +1,6 @@
-import "server-only";
+// 학습 통계 계산 (순수 함수 — 서버·브라우저 체험판 공용)
 import type { Course, RecordingResult, UserProgress, UserStats } from "./types";
-import { countSituations } from "./content";
+import { countSituations } from "./content-utils";
 
 export function streakOf(days: string[]): number {
   const set = new Set(days);
