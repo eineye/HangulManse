@@ -1,0 +1,114 @@
+{
+  "id": "daily",
+  "title_ko": "생활한글",
+  "title_en": "Everyday Korean",
+  "description_ko": "마트, 병원, 버스처럼 생활 속 여러 장소에서 필요한 한국어를 연습해요.",
+  "description_en": "Practice the Korean you need at the mart, the clinic, on the bus and more.",
+  "icon": "🛒",
+  "order": 2,
+  "published": true,
+  "units": [
+    {
+      "id": "d1",
+      "title_ko": "장보기",
+      "title_en": "Grocery shopping",
+      "order": 1,
+      "level": "초급",
+      "situations": [
+        {
+          "id": "d1-s1",
+          "title_ko": "마트에서 물건 찾기",
+          "title_en": "Finding items at the mart",
+          "description_ko": "동네 마트에서 우유를 찾고 있어요. 직원에게 위치를 물어보고 가격을 확인해 봅시다.",
+          "description_en": "You're looking for milk at a local mart. Ask a staff member where it is and check the price.",
+          "goal_ko": "물건의 위치와 가격을 존댓말로 물어볼 수 있다.",
+          "goal_en": "Politely ask where an item is and how much it costs.",
+          "place_tag": "마트",
+          "formality_tag": "존댓말",
+          "difficulty_tag": "초급",
+          "image": "🛒",
+          "roles": ["손님", "마트 직원"],
+          "terms": [
+            { "id": "t-eodi", "hangul": "어디에 있어요?", "romanization": "eodie isseoyo?", "gloss_en": "Where is it?", "category": "질문" },
+            { "id": "t-eolma", "hangul": "얼마예요?", "romanization": "eolmayeyo?", "gloss_en": "How much is it?", "category": "질문" },
+            { "id": "t-uyu", "hangul": "우유", "romanization": "uyu", "gloss_en": "milk", "category": "물건" },
+            { "id": "t-bongtu", "hangul": "봉투", "romanization": "bongtu", "gloss_en": "(shopping) bag", "category": "물건" }
+          ],
+          "sentences": [
+            { "id": "d1-s1-1", "text_ko": "저기요, 우유는 어디에 있어요?", "text_en": "Excuse me, where is the milk?", "romanization": "jeogiyo, uyuneun eodie isseoyo?" },
+            { "id": "d1-s1-2", "text_ko": "이거 얼마예요?", "text_en": "How much is this?", "romanization": "igeo eolmayeyo?" },
+            { "id": "d1-s1-3", "text_ko": "봉투 하나 주세요.", "text_en": "One bag, please.", "romanization": "bongtu hana juseyo." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d2",
+      "title_ko": "병원과 약국",
+      "title_en": "Clinic and pharmacy",
+      "order": 2,
+      "level": "초급",
+      "situations": [
+        {
+          "id": "d2-s1",
+          "title_ko": "병원 접수하기",
+          "title_en": "Checking in at a clinic",
+          "description_ko": "아이가 열이 나서 소아과에 왔어요. 접수 창구에서 증상을 말해 봅시다.",
+          "description_en": "Your child has a fever, so you came to a pediatric clinic. Explain the symptoms at the reception desk.",
+          "goal_ko": "접수하고 아픈 곳과 증상을 간단히 말할 수 있다.",
+          "goal_en": "Check in and briefly describe where it hurts and the symptoms.",
+          "place_tag": "병원",
+          "formality_tag": "존댓말",
+          "difficulty_tag": "중급",
+          "image": "🏥",
+          "roles": ["보호자", "접수 간호사"],
+          "terms": [
+            { "id": "t-jeopsu", "hangul": "접수", "romanization": "jeopsu", "gloss_en": "registration / check-in", "category": "병원" },
+            { "id": "t-yeol", "hangul": "열이 나요", "romanization": "yeori nayo", "gloss_en": "has a fever", "category": "증상" },
+            { "id": "t-apayo", "hangul": "아파요", "romanization": "apayo", "gloss_en": "it hurts", "category": "증상" },
+            { "id": "t-boheom", "hangul": "건강보험증", "romanization": "geongangboheomjeung", "gloss_en": "health insurance card", "category": "병원" }
+          ],
+          "sentences": [
+            { "id": "d2-s1-1", "text_ko": "진료 접수하려고 왔어요.", "text_en": "I'm here to register for an appointment.", "romanization": "jillyo jeopsuharyeogo wasseoyo." },
+            { "id": "d2-s1-2", "text_ko": "아이가 어제부터 열이 나요.", "text_en": "My child has had a fever since yesterday.", "romanization": "aiga eojebuteo yeori nayo." },
+            { "id": "d2-s1-3", "text_ko": "목도 아프고 기침도 해요.", "text_en": "Their throat hurts and they're coughing too.", "romanization": "mokdo apeugo gichimdo haeyo." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d3",
+      "title_ko": "대중교통",
+      "title_en": "Public transport",
+      "order": 3,
+      "level": "초급",
+      "situations": [
+        {
+          "id": "d3-s1",
+          "title_ko": "버스 타기",
+          "title_en": "Taking the bus",
+          "description_ko": "시장에 가려고 버스를 탔어요. 기사님께 이 버스가 시장에 가는지 물어봅시다.",
+          "description_en": "You got on a bus to go to the market. Ask the driver whether this bus goes there.",
+          "goal_ko": "목적지를 말하고 내릴 곳을 물어볼 수 있다.",
+          "goal_en": "State your destination and ask where to get off.",
+          "place_tag": "버스",
+          "formality_tag": "존댓말",
+          "difficulty_tag": "초급",
+          "image": "🚌",
+          "roles": ["승객", "버스 기사"],
+          "terms": [
+            { "id": "t-gayo", "hangul": "가요?", "romanization": "gayo?", "gloss_en": "Does it go?", "category": "질문" },
+            { "id": "t-naeryeoyo", "hangul": "내려요", "romanization": "naeryeoyo", "gloss_en": "get off", "category": "교통" },
+            { "id": "t-jeongnyujang", "hangul": "정류장", "romanization": "jeongnyujang", "gloss_en": "bus stop", "category": "교통" },
+            { "id": "t-gyotongkadeu", "hangul": "교통카드", "romanization": "gyotongkadeu", "gloss_en": "transit card", "category": "교통" }
+          ],
+          "sentences": [
+            { "id": "d3-s1-1", "text_ko": "기사님, 이 버스 시장에 가요?", "text_en": "Driver, does this bus go to the market?", "romanization": "gisanim, i beoseu sijange gayo?" },
+            { "id": "d3-s1-2", "text_ko": "어디에서 내려요?", "text_en": "Where do I get off?", "romanization": "eodieseo naeryeoyo?" },
+            { "id": "d3-s1-3", "text_ko": "다음 정류장에서 내릴게요.", "text_en": "I'll get off at the next stop.", "romanization": "daeum jeongnyujang-eseo naeril-geyo." }
+          ]
+        }
+      ]
+    }
+  ]
+}

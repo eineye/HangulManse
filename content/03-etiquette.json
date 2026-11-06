@@ -1,0 +1,105 @@
+{
+  "id": "etiquette",
+  "title_ko": "예절한글",
+  "title_en": "Korean Etiquette",
+  "description_ko": "학교, 이웃집, 공공장소에서 지켜야 할 예절과 높임말을 배워요.",
+  "description_en": "Learn the manners and honorifics expected at school, at a neighbor's home and in public places.",
+  "icon": "🙇",
+  "order": 3,
+  "published": true,
+  "units": [
+    {
+      "id": "e1",
+      "title_ko": "학교에서",
+      "title_en": "At school",
+      "order": 1,
+      "level": "초급",
+      "situations": [
+        {
+          "id": "e1-s1",
+          "title_ko": "담임 선생님과 상담하기",
+          "title_en": "Meeting the homeroom teacher",
+          "description_ko": "학부모 상담 주간이에요. 담임 선생님께 높임말로 아이의 학교생활을 여쭤봅시다.",
+          "description_en": "It's parent-teacher conference week. Ask the homeroom teacher about your child's school life using honorifics.",
+          "goal_ko": "'-시-' 높임과 '여쭤보다', '말씀' 같은 높임 어휘를 쓸 수 있다.",
+          "goal_en": "Use the honorific '-si-' and honorific words like 'yeojjwoboda' and 'malsseum'.",
+          "place_tag": "학교",
+          "formality_tag": "존댓말",
+          "difficulty_tag": "중급",
+          "image": "🏫",
+          "roles": ["학부모", "담임 선생님"],
+          "terms": [
+            { "id": "t-seonsaengnim", "hangul": "선생님", "romanization": "seonsaengnim", "gloss_en": "teacher (honorific)", "category": "호칭" },
+            { "id": "t-yeojjwo", "hangul": "여쭤보다", "romanization": "yeojjwoboda", "gloss_en": "to ask (humble, to a superior)", "category": "높임말" },
+            { "id": "t-malsseum", "hangul": "말씀", "romanization": "malsseum", "gloss_en": "words / speech (honorific)", "category": "높임말" },
+            { "id": "t-sugo", "hangul": "수고하셨습니다", "romanization": "sugohasyeotseumnida", "gloss_en": "Thank you for your hard work", "category": "인사" }
+          ],
+          "sentences": [
+            { "id": "e1-s1-1", "text_ko": "선생님, 안녕하세요. 지민이 엄마예요.", "text_en": "Hello, teacher. I'm Jimin's mother.", "romanization": "seonsaengnim, annyeonghaseyo. jiminiomma-yeyo." },
+            { "id": "e1-s1-2", "text_ko": "아이 학교생활에 대해 여쭤보고 싶어요.", "text_en": "I'd like to ask about my child's school life.", "romanization": "ai hakgyosaenghware daehae yeojjwobogo sipeoyo." },
+            { "id": "e1-s1-3", "text_ko": "말씀해 주셔서 감사합니다.", "text_en": "Thank you for telling me.", "romanization": "malsseumhae jusyeoseo gamsahamnida." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2",
+      "title_ko": "공공장소 규칙",
+      "title_en": "Rules in public places",
+      "order": 2,
+      "level": "초급",
+      "situations": [
+        {
+          "id": "e2-s1",
+          "title_ko": "분리수거 규칙 묻기",
+          "title_en": "Asking about recycling rules",
+          "description_ko": "한국 아파트는 요일과 종류별로 쓰레기를 나눠 버려요. 경비원께 분리수거 방법을 여쭤봅시다.",
+          "description_en": "Korean apartments separate waste by type and day. Ask the security guard how recycling works.",
+          "goal_ko": "규칙을 물어보고, 몰랐던 것에 대해 공손하게 사과할 수 있다.",
+          "goal_en": "Ask about rules and politely apologize for not knowing.",
+          "place_tag": "아파트 분리수거장",
+          "formality_tag": "존댓말",
+          "difficulty_tag": "초급",
+          "image": "♻️",
+          "roles": ["주민", "경비원"],
+          "terms": [
+            { "id": "t-bunrisugeo", "hangul": "분리수거", "romanization": "bullisugeo", "gloss_en": "recycling / waste separation", "category": "생활 규칙" },
+            { "id": "t-jongnyangje", "hangul": "종량제 봉투", "romanization": "jongnyangje bongtu", "gloss_en": "official pay-as-you-throw bag", "category": "생활 규칙" },
+            { "id": "t-joesong", "hangul": "죄송합니다", "romanization": "joesonghamnida", "gloss_en": "I'm sorry (formal)", "category": "사과" },
+            { "id": "t-mollasseoyo", "hangul": "몰랐어요", "romanization": "mollasseoyo", "gloss_en": "I didn't know", "category": "사과" }
+          ],
+          "sentences": [
+            { "id": "e2-s1-1", "text_ko": "분리수거는 무슨 요일에 해요?", "text_en": "On which day do we do recycling?", "romanization": "bullisugeoneun museun yoire haeyo?" },
+            { "id": "e2-s1-2", "text_ko": "죄송합니다. 규칙을 몰랐어요.", "text_en": "I'm sorry. I didn't know the rule.", "romanization": "joesonghamnida. gyuchigeul mollasseoyo." },
+            { "id": "e2-s1-3", "text_ko": "종량제 봉투는 어디에서 사요?", "text_en": "Where do I buy the official trash bags?", "romanization": "jongnyangje bongtuneun eodieseo sayo?" }
+          ]
+        },
+        {
+          "id": "e2-s2",
+          "title_ko": "지하철 예절",
+          "title_en": "Subway manners",
+          "description_ko": "지하철에는 노약자석과 임산부 배려석이 있어요. 자리를 양보하는 말을 연습해 봅시다.",
+          "description_en": "The subway has seats for the elderly and pregnant women. Practice offering your seat.",
+          "goal_ko": "어른께 자리를 양보하고, 지하철에서 지켜야 할 예절을 말할 수 있다.",
+          "goal_en": "Offer your seat to an elder and talk about subway etiquette.",
+          "place_tag": "지하철",
+          "formality_tag": "존댓말",
+          "difficulty_tag": "초급",
+          "image": "🚇",
+          "roles": ["승객", "할머니 승객"],
+          "terms": [
+            { "id": "t-noyakja", "hangul": "노약자석", "romanization": "noyakjaseok", "gloss_en": "priority seat (elderly/disabled)", "category": "공공장소" },
+            { "id": "t-anjeuseyo", "hangul": "여기 앉으세요", "romanization": "yeogi anjeuseyo", "gloss_en": "Please sit here", "category": "높임말" },
+            { "id": "t-jogyonghi", "hangul": "조용히", "romanization": "jogyonghi", "gloss_en": "quietly", "category": "공공장소" },
+            { "id": "t-sillye", "hangul": "실례합니다", "romanization": "sillyehamnida", "gloss_en": "Excuse me", "category": "인사" }
+          ],
+          "sentences": [
+            { "id": "e2-s2-1", "text_ko": "할머니, 여기 앉으세요.", "text_en": "Ma'am, please sit here.", "romanization": "halmeoni, yeogi anjeuseyo." },
+            { "id": "e2-s2-2", "text_ko": "실례합니다. 좀 지나갈게요.", "text_en": "Excuse me, I'm going to pass by.", "romanization": "sillyehamnida. jom jinagalgeyo." },
+            { "id": "e2-s2-3", "text_ko": "지하철에서는 조용히 통화해요.", "text_en": "On the subway, we talk quietly on the phone.", "romanization": "jihacheoreseoneun jogyonghi tonghwahaeyo." }
+          ]
+        }
+      ]
+    }
+  ]
+}
