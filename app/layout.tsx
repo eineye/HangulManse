@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   title: "한글만세 HangulManse",
   description: "다문화 가정 학생과 일반인을 위한 AI 한국어 학습 서비스",
   manifest: "/manifest.webmanifest",
+  icons: { apple: "/apple-touch-icon.png" },
+  appleWebApp: { capable: true, title: "한글만세", statusBarStyle: "black-translucent" },
 };
 
 export const viewport: Viewport = { themeColor: "#0f2e24", width: "device-width", initialScale: 1 };

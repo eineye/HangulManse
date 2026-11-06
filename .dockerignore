@@ -1,0 +1,9 @@
+node_modules
+.next
+.git
+data
+android
+docs
+*.md
+!content/README.md
+.env*

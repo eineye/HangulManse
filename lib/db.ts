@@ -1,6 +1,7 @@
 import "server-only";
 import { promises as fs } from "node:fs";
 import path from "node:path";
+import { DATA_DIR } from "./paths";
 import { randomUUID } from "node:crypto";
 import { hashPassword } from "./password";
 import type { RecordingResult, StoredUser, User, UserProgress } from "./types";
@@ -9,7 +10,6 @@ import type { RecordingResult, StoredUser, User, UserProgress } from "./types";
 // data/*.json 파일 기반의 아주 작은 저장소로, 단일 Node 프로세스 기준으로 쓰기를 직렬화한다.
 // PostgreSQL 등으로 옮길 때는 이 모듈의 함수 시그니처만 유지하면 된다.
 
-const DATA_DIR = path.join(process.cwd(), "data");
 
 interface Tables {
   users: StoredUser[];
@@ -29,7 +29,7 @@ function serialize<T>(fn: () => Promise<T>): Promise<T> {
 async function readTable<K extends TableName>(name: K): Promise<Tables[K]> {
   await ensureSeeded();
   try {
-    return JSON.parse(await fs.readFile(path.join(DATA_DIR, `${name}.json`), "utf8")) as Tables[K];
+    return JSON.parse(await fs.readFile(path.join(/*turbopackIgnore: true*/ DATA_DIR, `${name}.json`), "utf8")) as Tables[K];
   } catch (e) {
     if ((e as NodeJS.ErrnoException).code === "ENOENT") return [] as unknown as Tables[K];
     throw e;
@@ -38,7 +38,7 @@ async function readTable<K extends TableName>(name: K): Promise<Tables[K]> {
 
 async function writeTable<K extends TableName>(name: K, rows: Tables[K]) {
   await fs.mkdir(DATA_DIR, { recursive: true });
-  const file = path.join(DATA_DIR, `${name}.json`);
+  const file = path.join(/*turbopackIgnore: true*/ DATA_DIR, `${name}.json`);
   const tmp = `${file}.${process.pid}.tmp`;
   await fs.writeFile(tmp, JSON.stringify(rows, null, 2), "utf8");
   await fs.rename(tmp, file);
@@ -174,7 +174,7 @@ function ensureSeeded() {
 }
 
 async function seed() {
-  const usersFile = path.join(DATA_DIR, "users.json");
+  const usersFile = path.join(/*turbopackIgnore: true*/ DATA_DIR, "users.json");
   try {
     await fs.access(usersFile);
     return;

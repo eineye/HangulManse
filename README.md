@@ -34,6 +34,8 @@ http://localhost:3000 접속 → 로그인 화면.
 | `CLAUDE_MODEL` | 대화 모델 (기본 `claude-opus-5-5`) |
 | `AUTH_SECRET` | 세션 쿠키 서명 키 (미설정 시 `data/.secret` 자동 생성) |
 | `ADMIN_PASSWORD` | 최초 실행 시 만들어지는 관리자 계정 비밀번호 |
+| `DATA_DIR` / `CONTENT_DIR` | 계정·학습 기록 / 콘텐츠 저장 위치 (기본 `./data`, `./content`) |
+| `ANDROID_SHA256_FINGERPRINTS` | Android 앱 서명 지문(콤마 구분) — 앱을 주소창 없이 열기 위함 |
 
 ### 운영 빌드
 
@@ -47,6 +49,16 @@ npm start
 
 `content/`와 `data/`를 런타임에 읽고 쓰므로 Node 서버(자체 호스팅, 컨테이너 등)로 실행해야 합니다.
 HTTPS가 아닌 환경에서 `npm start`로 테스트할 때는 `INSECURE_COOKIES=1`을 지정해야 로그인 쿠키가 저장됩니다.
+
+## 배포 · 스마트폰 앱(APK)
+
+웹 서버 하나에 사용자 앱과 관리자 페이지(`/admin`)가 함께 배포됩니다. Android 앱은 배포된 웹을 Chrome으로
+전체 화면 실행하는 TWA 방식이며, GitHub Actions(**Android APK** 워크플로)에서 APK를 만듭니다.
+단계별 안내: [`docs/DEPLOY.md`](docs/DEPLOY.md)
+
+- 웹: `render.yaml`(Render 블루프린트) 또는 `Dockerfile` — 영구 디스크에 `data/`·`content/` 저장 (`DATA_DIR`, `CONTENT_DIR`)
+- APK: `android/` (TWA 프로젝트), `.github/workflows/android-apk.yml`
+- `ANDROID_SHA256_FINGERPRINTS` 환경 변수 → `/.well-known/assetlinks.json` (앱 주소창 숨김)
 
 ## 기능
 
