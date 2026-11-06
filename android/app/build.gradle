@@ -11,8 +11,9 @@ def appVersionCode = (project.findProperty('appVersionCode') ?: '1').toString().
 def appVersionName = (project.findProperty('appVersionName') ?: '1.0.0').toString()
 
 // 릴리스 서명: 환경 변수(ANDROID_KEYSTORE_FILE 등)가 있으면 그 키로, 없으면 디버그 키로 서명한다.
-def keystoreFile = System.getenv('ANDROID_KEYSTORE_FILE')
-def hasReleaseKey = keystoreFile != null && file(keystoreFile).exists()
+// (워크플로에서 시크릿이 없으면 빈 문자열로 전달되므로 null뿐 아니라 빈 값도 걸러야 한다)
+def keystoreFile = System.getenv('ANDROID_KEYSTORE_FILE')?.trim()
+def hasReleaseKey = keystoreFile && file(keystoreFile).exists()
 
 android {
     namespace 'kr.hangulmanse.app'
